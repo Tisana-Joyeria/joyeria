@@ -20,7 +20,7 @@ export class ProductsService {
       id: 1,
       name: 'Anillo Sofia',
       price: '$ 250.00',
-      image: '/images/anillos/anillo1.jpg',
+      image: 'images/anillos/anillo1.jpg',
       colors: ['#d4af37', '#c0c0c0'],
       category: 'Anillos'
     },
@@ -28,7 +28,7 @@ export class ProductsService {
       id: 2,
       name: 'Anillo Diana',
       price: '$ 280.00',
-      image: '/images/anillos/anillo2.jpg',
+      image: 'images/anillos/anillo2.jpg',
       colors: ['#d4af37', '#c0c0c0'],
       category: 'Anillos'
     },
@@ -36,7 +36,7 @@ export class ProductsService {
       id: 3,
       name: 'Anillo Camila',
       price: '$ 290.00',
-      image: '/images/anillos/anillo3.jpg',
+      image: 'images/anillos/anillo3.jpg',
       colors: ['#c0c0c0'],
       category: 'Anillos'
     }
@@ -48,7 +48,7 @@ export class ProductsService {
       id: 100,
       name: 'Aretes Luna',
       price: '$ 180.00',
-      image: '/images/aretes/arete.jpg',
+      image: 'images/aretes/arete.jpg',
       colors: ['#d4af37'],
       category: 'Aretes'
     },
@@ -56,7 +56,7 @@ export class ProductsService {
       id: 101,
       name: 'Aretes Carolina',
       price: '$ 200.00',
-      image: '/images/aretes/arete1.jpg',
+      image: 'images/aretes/arete1.jpg',
       colors: ['#c0c0c0'],
       category: 'Aretes'
     },
@@ -64,7 +64,7 @@ export class ProductsService {
       id: 102,
       name: 'Aretes Valeria',
       price: '$ 190.00',
-      image: '/images/aretes/arete2.jpg',
+      image: 'images/aretes/arete2.jpg',
       colors: ['#d4af37', '#c0c0c0'],
       category: 'Aretes'
     }
@@ -76,7 +76,7 @@ export class ProductsService {
       id: 200,
       name: 'Collar Martina',
       price: '$ 300.00',
-      image: '/images/collares/collar.jpg',
+      image: 'images/collares/collar.jpg',
       colors: ['#d4af37', '#c0c0c0'],
       category: 'Collares'
     },
@@ -84,7 +84,7 @@ export class ProductsService {
       id: 201,
       name: 'Collar Victoria',
       price: '$ 350.00',
-      image: '/images/collares/collar1.jpg',
+      image: 'images/collares/collar1.jpg',
       colors: ['#d4af37'],
       category: 'Collares'
     },
@@ -92,7 +92,7 @@ export class ProductsService {
       id: 202,
       name: 'Collar Isabella',
       price: '$ 380.00',
-      image: '/images/collares/collar2.jpg',
+      image: 'images/collares/collar2.jpg',
       colors: ['#d4af37'],
       category: 'Collares'
     }
@@ -104,7 +104,7 @@ export class ProductsService {
       id: 300,
       name: 'Pulsera Elena',
       price: '$ 220.00',
-      image: '/images/pulseras/pulsera.jpg',
+      image: 'images/pulseras/pulsera.jpg',
       colors: ['#d4af37', '#c0c0c0'],
       category: 'Pulseras'
     },
@@ -112,7 +112,7 @@ export class ProductsService {
       id: 301,
       name: 'Pulsera Valentina',
       price: '$ 240.00',
-      image: '/images/pulseras/pulsera1.jpg',
+      image: 'images/pulseras/pulsera1.jpg',
       colors: ['#d4af37', '#c0c0c0'],
       category: 'Pulseras'
     },
@@ -120,7 +120,7 @@ export class ProductsService {
       id: 302,
       name: 'Pulsera Natalia',
       price: '$ 230.00',
-      image: '/images/pulseras/pulsera2.jpg',
+      image: 'images/pulseras/pulsera2.jpg',
       colors: ['#d4af37'],
       category: 'Pulseras'
     }

@@ -12,22 +12,22 @@ export class CategoriesComponent {
   categories = [
     {
       name: 'ANILLOS',
-      image: '/images/categorias/anillos.jpg',
+      image: 'images/categorias/anillos.jpg',
       route: '/anillos'
     },
     {
       name: 'ARETES & EARCUFFS',
-      image: '/images/categorias/aretes.jpg',
+      image: 'images/categorias/aretes.jpg',
       route: '/aretes'
     },
     {
       name: 'COLLARES',
-      image: '/images/categorias/collares.jpg',
+      image: 'images/categorias/collares.jpg',
       route: '/collares'
     },
     {
       name: 'PULSERAS',
-      image: '/images/categorias/pulseras.jpg',
+      image: 'images/categorias/pulseras.jpg',
       route: '/pulseras'
     }
   ];
