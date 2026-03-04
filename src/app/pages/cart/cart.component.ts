@@ -13,7 +13,7 @@ export class CartComponent {
   // Número de WhatsApp de la tienda (cambiar por tu número)
   // Formato: código de país + número sin espacios ni guiones
   // Ejemplo México: 521234567890, España: 34612345678
-  readonly whatsappNumber = '2213335346'; // Cambiar por tu número
+  readonly whatsappNumber = '2218348058'; // Cambiar por tu número
 
   // Control de modales
   showConfirmModal = false;
