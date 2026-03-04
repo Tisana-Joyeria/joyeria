@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './hero-section.component.scss'
 })
 export class HeroSectionComponent {
-
+  heroImage = 'images/hero/hero.jpg';
 }
