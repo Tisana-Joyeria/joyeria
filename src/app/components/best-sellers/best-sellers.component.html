@@ -1,0 +1,23 @@
+<section class="best-sellers">
+  <div class="container">
+    <div class="section-header">
+      <h2>MEJORES VENTAS</h2>
+      <a routerLink="/categorias" class="shop-link">COMPRAR AHORA</a>
+    </div>
+    
+    <div class="products-grid">
+      <a [routerLink]="['/producto', product.id]" class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-price">{{ product.price }}</p>
+          <div class="product-colors">
+            <span class="color-dot" *ngFor="let color of product.colors" [style.background-color]="color"></span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

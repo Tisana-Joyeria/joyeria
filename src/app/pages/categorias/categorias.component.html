@@ -1,0 +1,23 @@
+<section class="categorias">
+  <div class="container">
+    <h1 class="page-title">Todas las Categorías</h1>
+    <p class="page-subtitle">Descubre nuestra colección completa de joyería</p>
+    
+    <div class="products-grid">
+      <a [routerLink]="['/producto', product.id]" class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <span class="product-category">{{ product.category }}</span>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-price">{{ product.price }}</p>
+          <div class="product-colors">
+            <span class="color-dot" *ngFor="let color of product.colors" [style.background-color]="color"></span>
+          </div>
+          <button class="shop-btn">COMPRAR AHORA</button>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

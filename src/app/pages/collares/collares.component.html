@@ -1,0 +1,26 @@
+<section class="category-page">
+  <div class="container">
+    <h1 class="page-title">Collares</h1>
+    <p class="page-subtitle">Explora nuestra colección de collares elegantes</p>
+    
+    <div class="products-grid" *ngIf="products.length > 0">
+      <a [routerLink]="['/producto', product.id]" class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-price">{{ product.price }}</p>
+          <div class="product-colors">
+            <span class="color-dot" *ngFor="let color of product.colors" [style.background-color]="color"></span>
+          </div>
+          <button class="shop-btn">COMPRAR AHORA</button>
+        </div>
+      </a>
+    </div>
+
+    <div class="no-products" *ngIf="products.length === 0">
+      <p>No hay productos disponibles en esta categoría</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,122 @@
+<header class="header">
+  <div class="header-container">
+    <button class="menu-btn" aria-label="Menu" (click)="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <a routerLink="/" class="logo">
+      <svg width="40" height="40" viewBox="0 0 100 100" fill="currentColor">
+        <text x="50" y="70" font-size="80" font-weight="300" text-anchor="middle" font-family="serif">T</text>
+      </svg>
+    </a>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Buscar" (click)="toggleSearch()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+      <button class="icon-btn cart-btn" aria-label="Carrito" (click)="goToCart()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 2L7 7H21L19 2H9Z"></path>
+          <path d="M7 7L6 22H21L20 7"></path>
+          <circle cx="9" cy="22" r="1" fill="currentColor"></circle>
+          <circle cx="18" cy="22" r="1" fill="currentColor"></circle>
+        </svg>
+        <span class="cart-badge" *ngIf="cartItemCount() > 0">{{ cartItemCount() }}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Overlay -->
+<div class="menu-overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
+
+<!-- Menú Lateral -->
+<div class="side-menu" [class.active]="isMenuOpen">
+  <div class="side-menu-header">
+    <h2 class="side-menu-logo">Tisana</h2>
+    <button class="close-btn" aria-label="Cerrar" (click)="closeMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <nav class="side-menu-nav">
+    <a routerLink="/" class="menu-link" (click)="closeMenu()">INICIO</a>
+    <a routerLink="/categorias" class="menu-link" (click)="closeMenu()">CATEGORIAS</a>
+    <a routerLink="/collares" class="menu-link" (click)="closeMenu()">COLLARES</a>
+    <a routerLink="/anillos" class="menu-link" (click)="closeMenu()">ANILLOS</a>
+    <a routerLink="/aretes" class="menu-link" (click)="closeMenu()">ARETES</a>
+    <a routerLink="/pulseras" class="menu-link" (click)="closeMenu()">PULSERAS</a>
+    <!--    <a routerLink="/segundo-drop" class="menu-link" (click)="closeMenu()">SEGUNDO DROP</a>
+    <a routerLink="/rebajas" class="menu-link" (click)="closeMenu()">REBAJAS!!</a>-->
+    
+  </nav>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" [class.active]="isSearchOpen">
+  <div class="search-container">
+    <div class="search-input-wrapper">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      <input 
+        id="search-input"
+        type="text" 
+        class="search-input" 
+        placeholder="Buscar productos..." 
+        [(ngModel)]="searchQuery"
+        (input)="onSearchInput()"
+      >
+      <button class="close-search-btn" aria-label="Cerrar búsqueda" (click)="closeSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="search-results" *ngIf="searchQuery">
+      <div class="results-header">PRODUCTOS</div>
+      
+      <div class="no-results" *ngIf="searchResults.length === 0">
+        No se encontraron productos
+      </div>
+      
+      <div class="search-results-list" *ngIf="searchResults.length > 0">
+        <a 
+          [routerLink]="['/producto', product.id]" 
+          class="search-result-item" 
+          *ngFor="let product of searchResults.slice(0, 5)"
+          (click)="goToProduct(product.id)"
+        >
+          <img [src]="product.image" [alt]="product.name" class="result-image">
+          <div class="result-info">
+            <div class="result-colors">
+              <span *ngFor="let color of product.colors" [style.background-color]="color" class="color-circle"></span>
+            </div>
+            <span class="result-name">{{ product.name }}</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="view-all" *ngIf="searchResults.length > 0">
+        <a routerLink="/categorias" (click)="closeSearch()">
+          Ver todos los resultados
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" [class.active]="isSearchOpen" (click)="closeSearch()"></div>

@@ -1,0 +1,62 @@
+.instagram-section {
+  padding: 4rem 0;
+  background: #fff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.instagram-follow {
+  text-align: center;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  .social-images {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      
+      // Mejora la calidad de renderizado de imágenes
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      
+      // Anti-aliasing para mejor calidad
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (max-width: 768px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      @media (max-width: 480px) {
+        width: 110px;
+        height: 110px;
+        gap: 0.5rem;
+      }
+    }
+  }
+}

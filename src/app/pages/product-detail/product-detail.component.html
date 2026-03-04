@@ -1,0 +1,138 @@
+<div class="product-detail" *ngIf="product">
+  <div class="container">
+    <div class="product-layout">
+      <!-- Imagen del producto -->
+      <div class="product-image-section">
+        <div class="main-image">
+          <img [src]="product.image" [alt]="product.name">
+        </div>
+      </div>
+
+      <!-- Información del producto -->
+      <div class="product-info-section">
+        <p class="product-category">{{ product.category.toUpperCase() }}</p>
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-price">{{ product.price }}</p>
+        <p class="stock-status"><span class="dot"></span> El artículo está en stock</p>
+
+        <!-- Selector de color -->
+        <div class="color-selector">
+          <label>COLOR</label>
+          <div class="color-options">
+            <button 
+              *ngFor="let color of product.colors; let i = index"
+              class="color-option"
+              [class.selected]="selectedColor === i"
+              [style.background-color]="color"
+              (click)="selectColor(i)"
+              [attr.aria-label]="'Color ' + (i + 1)"
+            >
+              <svg *ngIf="selectedColor === i" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cantidad -->
+        <div class="quantity-selector">
+          <label>CANTIDAD</label>
+          <div class="quantity-controls">
+            <button (click)="decreaseQuantity()" aria-label="Disminuir cantidad">−</button>
+            <span>{{ quantity }}</span>
+            <button (click)="increaseQuantity()" aria-label="Aumentar cantidad">+</button>
+          </div>
+        </div>
+
+        <!-- Botones de acción -->
+        <button class="add-to-cart-btn" (click)="addToCart()">
+          AÑADIR AL CARRITO • {{ product.price }}
+        </button>
+        
+        <!-- Mensaje de confirmación -->
+        <div class="added-message" [class.show]="showAddedMessage">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          ¡Producto agregado al carrito!
+        </div>
+
+        <!-- Métodos de pago -->
+        <div class="payment-methods-section">
+          <p class="payment-title">Métodos de pago disponibles:</p>
+          <div class="payment-options">
+            <div class="payment-option">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <span>Transferencia bancaria</span>
+            </div>
+            <div class="payment-option">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <span>Efectivo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="product-description">
+          <p>Joyería elegante hecha a mano con materiales de alta calidad. Cada pieza es única y ha sido diseñada con atención al detalle para complementar tu estilo personal.</p>
+        </div>
+
+        <!-- Secciones colapsables -->
+        <div class="collapsible-sections">
+          <div class="section">
+            <button class="section-header" (click)="toggleSection('cuidados')">
+              <span>Cuidados</span>
+              <span class="icon">{{ expandedSection === 'cuidados' ? '−' : '+' }}</span>
+            </button>
+            <div class="section-content" [class.expanded]="expandedSection === 'cuidados'">
+              <p>Evita el contacto con agua, perfumes y productos químicos. Guarda en un lugar seco.</p>
+            </div>
+          </div>
+
+          <div class="section">
+            <button class="section-header" (click)="toggleSection('materiales')">
+              <span>Materiales</span>
+              <span class="icon">{{ expandedSection === 'materiales' ? '−' : '+' }}</span>
+            </button>
+            <div class="section-content" [class.expanded]="expandedSection === 'materiales'">
+              <p>Acero inoxidable con baño de oro de 18k y detalles en resina.</p>
+            </div>
+          </div>
+
+          <div class="section">
+            <button class="section-header" (click)="toggleSection('medidas')">
+              <span>Medidas</span>
+              <span class="icon">{{ expandedSection === 'medidas' ? '−' : '+' }}</span>
+            </button>
+            <div class="section-content" [class.expanded]="expandedSection === 'medidas'">
+              <p>Consulta nuestra guía de tallas para más información.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Productos relacionados -->
+    <div class="related-products" *ngIf="relatedProducts.length > 0">
+      <h2>Completa tu look</h2>
+      <div class="products-grid">
+        <div class="product-card" *ngFor="let relatedProduct of relatedProducts" (click)="goToProduct(relatedProduct.id)">
+          <div class="product-image">
+            <img [src]="relatedProduct.image" [alt]="relatedProduct.name">
+          </div>
+          <h3>{{ relatedProduct.name }}</h3>
+          <p class="price">{{ relatedProduct.price }}</p>
+          <div class="colors">
+            <span *ngFor="let color of relatedProduct.colors" [style.background-color]="color"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
